@@ -17,7 +17,7 @@ pipeline {
 		}
 		stage('Prepare Environment') {
 			steps {
-				git branch: '$BRANCH_NAME', url: 'https://github.com/tomas-ortega/jenkins-maven-project.git'
+				git branch: '$BRANCH_NAME', url: 'git@github.com:javiersomozad/cursoJenkins.git'
 			}
 		}
 		stage('Compile Project') {
