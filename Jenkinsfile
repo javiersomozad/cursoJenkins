@@ -10,7 +10,7 @@ pipeline {
 		timestamps()
 	}
 	stages {
-		stage('Clean WorkSpace') {
+		stage('Limpiar WorkSpace') {
 			steps {
 				cleanWs()
 			}
