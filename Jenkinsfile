@@ -42,13 +42,12 @@ pipeline {
         			protocol: 'http',
         			nexusUrl: 'http://localhost:8071/miRepo',
         			groupId: 'com.example',
-        			version: version,
+        			version: '1.0',
         			repository: 'miRepo',
         			credentialsId: 'credencialNexus',
         			artifacts: [
             			[artifactId: projectName,
-             				classifier: '',
-             				file: 'my-service-' + version + '.jar',
+             				file: 'jenkins-maven-project/target/jenkins-maven-project-1.0-SNAPSHOT.jar',
              				type: 'jar'
 						]
         			]
