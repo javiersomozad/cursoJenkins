@@ -9,13 +9,6 @@ pipeline {
 	options {
 		timestamps()
 	}
-	environment {
-        NEXUS_VERSION = "nexus3"
-        NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "localhost:8071"
-        NEXUS_REPOSITORY = "repo"
-        NEXUS_CREDENTIAL_ID = "credencialNexus"
-    }
 	stages {
 		stage('Limpiar WorkSpace') {
 			steps {
