@@ -37,27 +37,22 @@ pipeline {
 		}
 		stage("Publicacion en el reposotiro de nexus") {
             steps {
-          		nexusArtifactUploader {
-            		nexusVersion('nexus3')
-            		protocol('http')
-            		nexusUrl('localhost:8071/miRepo')
-            		groupId('sp.sd')
-            		version('2.4')
-            		repository('NexusArtifactUploader')
-            		credentialsId('credencialNexus')
-            		artifact {
-                		artifactId('nexus-artifact-uploader')
-                		type('jar')
-                		classifier('debug')
-                		file('nexus-artifact-uploader.jar')
-            		}
-            		artifact {
-                		artifactId('nexus-artifact-uploader')
-                		type('hpi')
-                		classifier('debug')
-                		file('nexus-artifact-uploader.hpi')
-            		}
-          		}
+          		nexusArtifactUploader(
+        			nexusVersion: 'nexus3',
+        			protocol: 'http',
+        			nexusUrl: 'http://localhost:8071/miRepo',
+        			groupId: 'com.example',
+        			version: version,
+        			repository: 'miRepo',
+        			credentialsId: 'credencialNexus',
+        			artifacts: [
+            			[artifactId: projectName,
+             				classifier: '',
+             				file: 'my-service-' + version + '.jar',
+             				type: 'jar'
+						]
+        			]
+     			)
         	}
         }
 	}
